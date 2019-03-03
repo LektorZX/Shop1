@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>SHOP</title>
+    <style>
+        .layer {
+            border: solid 1px black;
+            align: "center";
+            table-layout: fixed;
+            overflow: hidden;
+            width: 95%;
+        }
+        @media screen and (max-width: 1280px) {
+            div.contentblock {
+                width: 1200px;
+            }
+        }
+        @media screen and (max-width: 1140px) {
+            div.contentblock {
+                width: 1024px;
+            }
+        }
+        @media screen and (max-width: 992px) {
+            div. contentblock {
+                width: 970px;
+            }
+        }
+    </style>
+</head>
+<body>
+product
+<div th:insert="~{headers::logout}"></div>
+<br>
+
+<div th:each="product1:${product}">
+    <table class="layer">
+        <TR>
+            <TD style="width: 100px;">ИМЯ</TD>
+            <TD style="width: 50px;">ЦЕНА</TD>
+            <TD style="width: 80px;">КОЛИЧЕСТВО на складе</TD>
+            <TD style="width: 50px;">ПРОИЗВОДИТЕЛЬ</TD>
+            <TD style="width: 80px;">СТРАНА ПРОИЗВОДИТЕЛЬ</TD>
+            <TD style="width: 30px;">ID</TD>
+        </TR>
+        <TR>
+            <TD style="width: 100px;">
+                <span th:text="${product1.name}"><STRONG> NAME</STRONG></span>
+            </TD>
+            <TD style="width: 50px;">
+                <span th:text="${product1.price}"><STRONG> price</STRONG></span>
+            </TD>
+            <TD style="width: 50px;">
+            <span th:text="${product1.amount}"><STRONG> amount</STRONG></span>
+        </TD>
+            <TD style="width: 50px;">
+                <span th:text="${product1.remark}"><STRONG> remark</STRONG></span>
+            </TD>
+            <TD style="width: 50px;">
+                <span th:text="${product1.origin}"><STRONG> origin</STRONG></span>
+            </TD>
+            <TD style="width: 50px;">
+                <span th:text="${product1.id}"><STRONG> id</STRONG></span>
+            </TD>
+        </TR>
+    </table>
+    <br>
+</div>
+
+
+<div>
+    <form th:action="@{/shop}" th:method="post" th:object="${productDto}">
+        <table>
+            <br><td>Добавление товара </td><br>
+            <tr>
+                <td>name</td>
+                <td>
+                    <input th:type="text" th:field="*{name}" placeholder="Вася Пупкин"/>
+                </td>
+            </tr>
+            <tr>
+                <td>price</td>
+                <td>
+                    <input th:type="text" th:field="*{price}" placeholder="Google"/>
+                </td>
+            </tr>
+            <tr>
+                <td>amount</td>
+                <td>
+                    <input th:type="text" th:field="*{amount}" placeholder="123@mail.ru"/>
+                </td>
+            </tr>
+            <tr>
+                <td>remark</td>
+                <td>
+                    <input th:type="text" th:field="*{remark}" placeholder="123@mail.ru"/>
+                </td>
+            </tr>
+            <tr>
+                <td>origin</td>
+                <td>
+                    <input th:type="text" th:field="*{origin}" placeholder="123@mail.ru"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <input type="submit" th:name="action" th:value="Save">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<form sec:authorize="hasAuthority('admin')" th:action="@{/shop}" th:method="post" th:object="${productDell}">
+    <table>
+        <tr>
+            <td>Удаление товара </td>
+        </tr>
+        <tr>
+            <td>ID</td>
+            <td>
+                <input th:type="text" th:field="*{id}" placeholder="id"/>
+            </td>
+        </tr>
+        <tr><br>
+            <td colspan="3">
+                <input type="submit" th:name="action" th:value="Del"><br>
+            </td>
+        </tr>
+    </table>
+</form>
+
+
+<p><a href="home">home</a></p>
+</body>
+</html>

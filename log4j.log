@@ -1,0 +1,9 @@
+2019-03-01 13:33:18,535 INFO  - HHH000412: Hibernate Core {5.2.16.Final}
+2019-03-01 13:33:18,539 INFO  - HHH000205: Loaded properties from resource hibernate.properties: {hibernate.dialect=org.hibernate.dialect.PostgreSQL95Dialect, hibernate.show_sql=true, hibernate.bytecode.use_reflection_optimizer=false, hibernate.hbm2ddl.auto=create, hibernate.format_sql=true}
+2019-03-01 13:33:18,647 INFO  - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2019-03-01 13:33:19,121 INFO  - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2019-03-01 13:33:19,382 INFO  - HHH000424: Disabling contextual LOB creation as createClob() method threw error : java.lang.reflect.InvocationTargetException
+2019-03-01 13:33:19,386 INFO  - HHH000270: Type registration [java.util.UUID] overrides previous : org.hibernate.type.UUIDBinaryType@48d5f34e
+2019-03-01 13:33:20,675 INFO  - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@18fdb6cf'
+2019-03-01 13:33:21,116 INFO  - HHH000397: Using ASTQueryTranslatorFactory
+2019-03-01 13:33:21,329 INFO  - HHH000114: Handling transient entity in delete processing

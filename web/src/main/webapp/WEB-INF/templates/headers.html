@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:fragment="logout">
+        <form sec:authorize="hasAuthority('admin')" th:action="@{/logout}" th:method="post">
+            <h2 th:inline="text">Вы зашли как [[${#httpServletRequest.remoteUser}]]</h2>
+            <input type="submit" th:value="Logout">
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <style>
+        .layer {
+            border: solid 1px black;
+            align: "center";
+            table-layout: fixed;
+            overflow: hidden;
+            width: 95%;
+        }
+        @media screen and (max-width: 1280px) {
+            div.contentblock {
+                width: 1200px;
+            }
+        }
+        @media screen and (max-width: 1140px) {
+            div.contentblock {
+                width: 1024px;
+            }
+        }
+        @media screen and (max-width: 992px) {
+            div. contentblock {
+                width: 970px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div th:insert="~{headers::logout}"></div>
+<br>
+<div>
+    <form th:action="@{/register}" th:method="post" th:object="${userDto}">
+        <table>
+            <br><td>Добавление пользователя </td><br>
+            <tr>
+                <td>name</td>
+                <td>
+                    <input th:type="text" th:field="*{name}" placeholder="Вася Пупкин"/>
+                </td>
+            </tr>
+            <tr>
+                <td>password</td>
+                <td>
+                    <input th:type="text" th:field="*{password}" placeholder="12345"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Role</td>
+                <td>
+                    <input th:type="text" th:field="*{role}" placeholder="CLIENT"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <input type="submit" th:name="action" th:value="Save">
+                    <input type="submit" th:name="action" th:value="Exit">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
